@@ -11,9 +11,9 @@
 
 class Trainer {
 public:
-    /// Trains using CFR, then returns the average strategy for each information set.
-    /// The strategy is a probability distribution over the possible actions,
-    /// represented as an array [P(pass), P(bet)]
+    /// Trains using CFR, then returns the average strategy over all iterations.
+    /// For each information set, the strategy contains a probability distribution over the possible actions,
+    /// represented as an array [P(pass), P(bet)].
     [[nodiscard]] std::map<InformationSet, std::array<double, NUM_ACTIONS>> train(int num_iterations);
 private:
     std::mt19937 rng = std::mt19937(std::random_device()());

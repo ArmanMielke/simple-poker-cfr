@@ -16,12 +16,12 @@ std::map<InformationSet, std::array<double, NUM_ACTIONS>> Trainer::train(int num
 
     std::cout << "Average game value: " << (utility / num_iterations) << std::endl << std::endl;
 
-    // return average strategy for each information set
-    std::map<InformationSet, std::array<double, NUM_ACTIONS>> average_strategies;
+    // construct a map with the average strategy over the training process
+    std::map<InformationSet, std::array<double, NUM_ACTIONS>> average_strategy;
     for (auto const& [info_set, node] : node_map) {
-        average_strategies[info_set] = node.get_average_strategy();
+        average_strategy[info_set] = node.get_average_strategy();
     }
-    return average_strategies;
+    return average_strategy;
 }
 
 void Trainer::shuffle(Deck& deck) {

@@ -8,7 +8,7 @@ const int NUM_TRAIN_ITERATIONS = 1000000;
 int main() {
     auto strategy = Trainer().train(NUM_TRAIN_ITERATIONS);
 
-    // print average strategy for each information set
+    // print probabilities for legal actions in each information set
     for (auto const& [info_set, strat] : strategy) {
         std::cout << info_set.str() << "  --  [ ";
         for (double probability : strat) {
