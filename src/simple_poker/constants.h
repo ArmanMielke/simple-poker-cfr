@@ -8,7 +8,7 @@
 
 typedef std::string InformationSet;
 typedef int Card;
-typedef std::array<Card, 3> Deck;
+typedef std::array<Card, 5> Deck;
 
 // there are two actions, pass and bet
 const int NUM_ACTIONS = 2;

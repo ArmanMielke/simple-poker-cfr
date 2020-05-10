@@ -4,7 +4,8 @@
 
 
 void Trainer::train(int num_iterations) {
-    Deck deck = {1, 2, 3};
+    Deck deck;
+    std::iota(std::begin(deck), std::end(deck), 1);
     double utility = 0;
 
     for (int i = 0; i < num_iterations; i++) {
