@@ -30,14 +30,14 @@ void KuhnTrainer::shuffle(Deck& deck) {
 }
 
 double KuhnTrainer::cfr(Deck cards, std::string history, double p0, double p1) {
-    int num_actions = history.length();
-    int player = num_actions % 2;
+    int actions = history.length();
+    int player = actions % 2;
     int opponent = 1 - player;
 
     // return payoff for terminal states
-    if (num_actions > 1) {
-        bool terminal_pass = history[num_actions - 1] == 'p';
-        bool double_bet = history.substr(num_actions - 2, 2) == "bb";
+    if (actions > 1) {
+        bool terminal_pass = history[actions - 1] == 'p';
+        bool double_bet = history.substr(actions - 2, 2) == "bb";
         bool player_card_is_higher = cards[player] > cards[opponent];
         if (terminal_pass) {
             if (history == "pp") {
@@ -57,18 +57,18 @@ double KuhnTrainer::cfr(Deck cards, std::string history, double p0, double p1) {
     std::array<double, NUM_ACTIONS> strategy = node->second.get_strategy(player == 0 ? p0 : p1);
     std::array<double, NUM_ACTIONS> utilities{};
     double node_utility = 0;
-    for (int a = 0; a < NUM_ACTIONS; a++) {
-        std::string next_history = history + (a == 0 ? "p" : "b");
-        utilities[a] = player == 0
-            ? - cfr(cards, next_history, p0 * strategy[a], p1)
-            : - cfr(cards, next_history, p0, p1 * strategy[a]);
-        node_utility += strategy[a] * utilities[a];
+    for (int action = 0; action < NUM_ACTIONS; action++) {
+        std::string next_history = history + (action == 0 ? "p" : "b");
+        utilities[action] = player == 0
+            ? - cfr(cards, next_history, p0 * strategy[action], p1)
+            : - cfr(cards, next_history, p0, p1 * strategy[action]);
+        node_utility += strategy[action] * utilities[action];
     }
 
     // for each action, compute and accumulate counterfactual regret
-    for (int a = 0; a < NUM_ACTIONS; a++) {
-        double regret = utilities[a] - node_utility;
-        node->second.regret_sum[a] += (player == 0 ? p1 : p0) * regret;
+    for (int action = 0; action < NUM_ACTIONS; action++) {
+        double regret = utilities[action] - node_utility;
+        node->second.regret_sum[action] += (player == 0 ? p1 : p0) * regret;
     }
 
     return node_utility;
