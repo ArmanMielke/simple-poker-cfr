@@ -47,8 +47,9 @@ std::array<double, NUM_ACTIONS> Node::get_strategy(double realization_weight) {
     return strategy;
 }
 
+// TODO make this std::string Node::str() const
 void Node::print() const {
-    std::cout << info_set << " - [ ";
+    std::cout << info_set.str() << " - [ ";
     for (double s : get_average_strategy()) {
         std::cout << s << ", ";
     }

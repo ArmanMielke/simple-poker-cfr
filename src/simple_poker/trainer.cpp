@@ -11,7 +11,7 @@ void Trainer::train(int num_iterations) {
 
     for (int i = 0; i < num_iterations; i++) {
         shuffle(deck);
-        utility += cfr(deck, "", 1, 1);
+        utility += cfr(deck, History(), 1, 1);
     }
 
     std::cout << "Average game value: " << (utility / num_iterations) << std::endl;
@@ -31,23 +31,26 @@ void Trainer::shuffle(Deck& deck) {
     }
 }
 
-double Trainer::cfr(Deck cards, const std::string& history, double p0, double p1) {
-    size_t player = history.length() % 2;
+double Trainer::cfr(const Deck& cards, const History& history, double p0, double p1) {
+    size_t player = history.size() % 2;
 
     // return payoff for terminal states
     if (game_over(history)) {
         return calculate_utility(history, cards);
     }
 
-    InformationSet info_set = std::to_string(cards[player]) + history;
+    InformationSet info_set = { .hand = cards[player], .history = history };
     auto node = get_node(info_set);
 
     // for each action, recursively call cfr with additional history and probability
     std::array<double, NUM_ACTIONS> strategy = node->second.get_strategy(player == 0 ? p0 : p1);
     std::array<double, NUM_ACTIONS> utilities{};
     double node_utility = 0;
-    for (int action = 0; action < NUM_ACTIONS; action++) {
-        std::string next_history = history + (action == 0 ? "p" : "b");
+    for (uint8_t action = 0; action < NUM_ACTIONS; action++) {
+        // add the new action to the history
+        History next_history = History(history);
+        next_history.push_back(static_cast<Action>(action));
+        // recursively call cfr from the perspective of the other player
         utilities[action] = player == 0
             ? - cfr(cards, next_history, p0 * strategy[action], p1)
             : - cfr(cards, next_history, p0, p1 * strategy[action]);

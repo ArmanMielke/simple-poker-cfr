@@ -3,6 +3,7 @@
 
 
 #include "constants.h"
+#include "information_set.h"
 
 
 class Node {
@@ -16,7 +17,7 @@ public:
     [[nodiscard]] std::array<double, NUM_ACTIONS> get_strategy(double realization_weight);
     void print() const;
 private:
-    InformationSet info_set;
+    InformationSet info_set;  // TODO remove
     std::array<double, NUM_ACTIONS> strategy{};
     std::array<double, NUM_ACTIONS> strategy_sum{};
 };

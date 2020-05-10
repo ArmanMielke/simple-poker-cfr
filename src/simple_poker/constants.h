@@ -4,6 +4,7 @@
 
 #include <string>
 #include <array>
+#include <vector>
 
 
 // The betting round works like this:
@@ -19,14 +20,19 @@
 // | bet      | bet      |          | +2 to player with higher card |
 
 
-typedef std::string InformationSet;
-typedef int Card;
-typedef std::array<Card, 5> Deck;
-
-// there are two actions, pass and bet
 const int NUM_ACTIONS = 2;
-const int PASS = 0;  // check or fold
-const int BET = 1;  // call or raise
+enum Action: uint8_t {
+    /// check or fold
+    PASS = 0,
+    /// call or raise
+    BET = 1,
+};
+
+
+typedef uint8_t Card;
+/// This is shuffled, then player 1 gets card deck[0] and player 2 gets card card[1].
+typedef std::array<Card, 5> Deck;
+typedef std::vector<Action> History;
 
 
 #endif //PYKER_CONSTANTS_H
