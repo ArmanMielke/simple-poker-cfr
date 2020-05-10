@@ -16,7 +16,7 @@ private:
     std::map<InformationSet, Node> node_map;
 
     void shuffle(Deck& deck);
-    double cfr(Deck cards, std::string history, double p0, double p1);
+    double cfr(Deck cards, const std::string& history, double p0, double p1);
     /// Gets the node for the given information set.
     /// The node is created if it doesn't exist yet.
     std::map<InformationSet, Node>::iterator get_node(const InformationSet& info_set);

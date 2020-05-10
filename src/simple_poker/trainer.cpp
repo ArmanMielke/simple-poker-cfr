@@ -1,4 +1,5 @@
 #include "trainer.h"
+#include "game_over_utils.h"
 
 #include <iostream>
 
@@ -30,25 +31,12 @@ void Trainer::shuffle(Deck& deck) {
     }
 }
 
-double Trainer::cfr(Deck cards, std::string history, double p0, double p1) {
-    int num_actions = history.length();
-    int player = num_actions % 2;
-    int opponent = 1 - player;
+double Trainer::cfr(Deck cards, const std::string& history, double p0, double p1) {
+    size_t player = history.length() % 2;
 
     // return payoff for terminal states
-    if (num_actions > 1) {
-        bool terminal_pass = history[num_actions - 1] == 'p';
-        bool double_bet = history.substr(num_actions - 2, 2) == "bb";
-        bool player_card_is_higher = cards[player] > cards[opponent];
-        if (terminal_pass) {
-            if (history == "pp") {
-                return player_card_is_higher ? 1 : -1;
-            } else {
-                return 1;
-            }
-        } else if (double_bet) {
-            return player_card_is_higher ? 2 : -2;
-        }
+    if (game_over(history)) {
+        return calculate_utility(history, cards);
     }
 
     InformationSet info_set = std::to_string(cards[player]) + history;
