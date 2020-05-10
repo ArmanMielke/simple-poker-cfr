@@ -7,19 +7,6 @@
 #include <vector>
 
 
-// The betting round works like this:
-//
-// |       Sequential Actions       |            Payoff             |
-// |----------+----------+----------|-------------------------------|
-// | Player 1 | Player 2 | Player 1 |                               |
-// |----------|----------|----------|-------------------------------|
-// | pass     | pass     |          | +1 to player with better hand |
-// | pass     | bet      | pass     | +1 to player 2                |
-// | pass     | bet      | bet      | +2 to player with better hand |
-// | bet      | pass     |          | +1 to player 1                |
-// | bet      | bet      |          | +2 to player with better hand |
-
-
 const int NUM_ACTIONS = 2;
 enum Action: uint8_t {
     /// check or fold
