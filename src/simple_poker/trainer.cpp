@@ -39,7 +39,7 @@ double Trainer::cfr(const Deck& cards, const History& history, double p0, double
         return calculate_utility(history, cards);
     }
 
-    InformationSet info_set = { .hand = cards[player], .history = history };
+    InformationSet info_set = { .hand = cards[player], .community_card = cards[2], .history = history };
     auto node = get_node(info_set);
 
     // for each action, recursively call cfr with additional history and probability

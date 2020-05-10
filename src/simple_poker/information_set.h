@@ -8,6 +8,7 @@
 struct InformationSet {
 public:
     Card hand;
+    Card community_card;
     History history;
 
     [[nodiscard]] std::string str() const;

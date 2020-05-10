@@ -13,11 +13,11 @@
 // |----------+----------+----------|-------------------------------|
 // | Player 1 | Player 2 | Player 1 |                               |
 // |----------|----------|----------|-------------------------------|
-// | pass     | pass     |          | +1 to player with higher card |
+// | pass     | pass     |          | +1 to player with better hand |
 // | pass     | bet      | pass     | +1 to player 2                |
-// | pass     | bet      | bet      | +2 to player with higher card |
+// | pass     | bet      | bet      | +2 to player with better hand |
 // | bet      | pass     |          | +1 to player 1                |
-// | bet      | bet      |          | +2 to player with higher card |
+// | bet      | bet      |          | +2 to player with better hand |
 
 
 const int NUM_ACTIONS = 2;
@@ -30,7 +30,7 @@ enum Action: uint8_t {
 
 
 typedef uint8_t Card;
-/// This is shuffled, then player 1 gets card deck[0] and player 2 gets card card[1].
+/// This is shuffled, then player 1 gets card deck[0] and player 2 gets card card[1]. card[2] is the community card.
 typedef std::array<Card, 5> Deck;
 typedef std::vector<Action> History;
 
