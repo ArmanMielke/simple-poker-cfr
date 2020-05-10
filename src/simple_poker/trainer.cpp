@@ -14,10 +14,10 @@ void Trainer::train(int num_iterations) {
         utility += cfr(deck, History(), 1, 1);
     }
 
-    std::cout << "Average game value: " << (utility / num_iterations) << std::endl;
-    // print nodes
+    std::cout << "Average game value: " << (utility / num_iterations) << std::endl << std::endl;
+    // print average strategy for each information set
     for (auto const& pair : node_map) {
-        std::cout << pair.second.str() << std::endl;
+        std::cout << pair.first.str() << "  --  " << pair.second.str() << std::endl;
     }
 }
 
@@ -71,7 +71,7 @@ std::map<InformationSet, Node>::iterator Trainer::get_node(const InformationSet 
     auto iter = node_map.find(info_set);
     if (iter == node_map.end()) {
         // node not found => create and insert it
-        node_map[info_set] = Node(info_set);
+        node_map[info_set] = Node();
         return node_map.find(info_set);
     } else {
         return iter;

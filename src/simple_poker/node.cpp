@@ -1,12 +1,5 @@
 #include "node.h"
 
-#include <iostream>
-#include <utility>
-
-
-Node::Node(InformationSet info_set) {
-    this->info_set = std::move(info_set);
-}
 
 std::array<double, NUM_ACTIONS> Node::get_average_strategy() const {
     std::array<double, NUM_ACTIONS> average_strategy{};
@@ -48,7 +41,7 @@ std::array<double, NUM_ACTIONS> Node::get_strategy(double realization_weight) {
 }
 
 std::string Node::str() const {
-    std::string output = info_set.str() + " - [ ";
+    std::string output = "[ ";
     for (double s : get_average_strategy()) {
         output += std::to_string(s) + ", ";
     }
