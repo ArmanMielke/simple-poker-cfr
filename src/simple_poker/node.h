@@ -12,7 +12,6 @@ public:
 
     [[nodiscard]] std::array<double, NUM_ACTIONS> get_average_strategy() const;
     [[nodiscard]] std::array<double, NUM_ACTIONS> get_strategy(double realization_weight);
-    [[nodiscard]] std::string str() const;
 private:
     std::array<double, NUM_ACTIONS> strategy{};
     std::array<double, NUM_ACTIONS> strategy_sum{};

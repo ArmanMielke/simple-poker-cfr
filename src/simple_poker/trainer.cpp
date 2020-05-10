@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-void Trainer::train(int num_iterations) {
+std::map<InformationSet, std::array<double, NUM_ACTIONS>> Trainer::train(int num_iterations) {
     Deck deck;
     std::iota(std::begin(deck), std::end(deck), 1);
     double utility = 0;
@@ -15,10 +15,13 @@ void Trainer::train(int num_iterations) {
     }
 
     std::cout << "Average game value: " << (utility / num_iterations) << std::endl << std::endl;
-    // print average strategy for each information set
-    for (auto const& pair : node_map) {
-        std::cout << pair.first.str() << "  --  " << pair.second.str() << std::endl;
+
+    // return average strategy for each information set
+    std::map<InformationSet, std::array<double, NUM_ACTIONS>> average_strategies;
+    for (auto const& [info_set, node] : node_map) {
+        average_strategies[info_set] = node.get_average_strategy();
     }
+    return average_strategies;
 }
 
 void Trainer::shuffle(Deck& deck) {

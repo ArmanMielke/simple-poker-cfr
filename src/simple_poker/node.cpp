@@ -39,12 +39,3 @@ std::array<double, NUM_ACTIONS> Node::get_strategy(double realization_weight) {
 
     return strategy;
 }
-
-std::string Node::str() const {
-    std::string output = "[ ";
-    for (double s : get_average_strategy()) {
-        output += std::to_string(s) + ", ";
-    }
-    output += "]";
-    return output;
-}
