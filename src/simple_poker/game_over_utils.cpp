@@ -14,22 +14,32 @@ bool game_over(const History& history) {
     );
 }
 
-double calculate_utility(const History& history, Deck cards) {
-    int len = history.size();
-    int player = len % 2;
-    int opponent = 1 - player;
+/// Returns +1 if player has a stronger hand than opponent.
+/// Returns -1 if player has a weaker hand than opponent.
+/// Returns 0 if both hands are of equal strength.
+int8_t compare_hands(const Deck& cards, size_t player_card_index) {
+    size_t opponent_card_index = 1 - player_card_index;
+    if (cards[player_card_index] > cards[opponent_card_index]) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
+
+double calculate_utility(const History& history, const Deck& cards) {
+    size_t len = history.size();
+    size_t player_card_index = len % 2;
 
     bool terminal_pass = history[len - 1] == PASS;
     bool double_bet = history[len - 2] == BET && history[len - 1] == BET;
-    bool player_card_is_higher = cards[player] > cards[opponent];
     if (terminal_pass) {
         if (history[len - 2] == PASS && history[len - 1] == PASS) {
-            return player_card_is_higher ? 1 : -1;
+            return compare_hands(cards, player_card_index);
         } else {
             return 1;
         }
     } else if (double_bet) {
-        return player_card_is_higher ? 2 : -2;
+        return compare_hands(cards, player_card_index) * 2;
     }
 
     throw std::domain_error("Unreachable");

@@ -5,7 +5,7 @@
 #include "constants.h"
 
 bool game_over(const History& history);
-double calculate_utility(const History& history, Deck cards);
+double calculate_utility(const History& history, const Deck& cards);
 
 
 #endif //PYKER_GAME_OVER_UTILS_H
