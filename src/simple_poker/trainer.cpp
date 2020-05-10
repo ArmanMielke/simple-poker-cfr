@@ -17,7 +17,7 @@ void Trainer::train(int num_iterations) {
     std::cout << "Average game value: " << (utility / num_iterations) << std::endl;
     // print nodes
     for (auto const& pair : node_map) {
-        pair.second.print();
+        std::cout << pair.second.str() << std::endl;
     }
 }
 

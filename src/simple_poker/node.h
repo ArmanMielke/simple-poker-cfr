@@ -15,7 +15,7 @@ public:
 
     [[nodiscard]] std::array<double, NUM_ACTIONS> get_average_strategy() const;
     [[nodiscard]] std::array<double, NUM_ACTIONS> get_strategy(double realization_weight);
-    void print() const;
+    [[nodiscard]] std::string str() const;
 private:
     InformationSet info_set;  // TODO remove
     std::array<double, NUM_ACTIONS> strategy{};
