@@ -19,7 +19,6 @@ private:
     std::mt19937 rng = std::mt19937(std::random_device()());
     std::map<InformationSet, Node> node_map;
 
-    void shuffle(Deck& deck);
     double cfr(const Deck& cards, const History& history, double p0, double p1);
     /// Gets the node for the given information set.
     /// The node is created if it doesn't exist yet.

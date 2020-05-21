@@ -2,8 +2,10 @@
 #define PYKER_NODE_H
 
 
-#include "constants.h"
+#include "action.h"
 #include "information_set.h"
+
+#include <array>
 
 
 class Node {

@@ -2,7 +2,8 @@
 #define PYKER_INFORMATION_SET_H
 
 
-#include "constants.h"
+#include "action.h"
+#include "deck.h"
 
 
 struct InformationSet {

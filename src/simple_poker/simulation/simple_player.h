@@ -3,7 +3,7 @@
 
 
 #include "simple_poker/information_set.h"
-#include "simple_poker/constants.h"
+#include "simple_poker/action.h"
 
 
 /// Abstract base class for objects that control the behaviour of a player for simplified poker.

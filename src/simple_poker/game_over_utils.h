@@ -2,7 +2,9 @@
 #define PYKER_GAME_OVER_UTILS_H
 
 
-#include "constants.h"
+#include "action.h"
+#include "deck.h"
+
 
 bool game_over(const History& history);
 double calculate_utility(const History& history, const Deck& cards);
