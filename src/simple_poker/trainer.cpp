@@ -5,8 +5,7 @@
 
 
 std::map<InformationSet, std::array<double, NUM_ACTIONS>> Trainer::train(int num_iterations) {
-    Deck deck;
-    std::iota(std::begin(deck), std::end(deck), 1);
+    Deck deck = create_deck();
     double utility = 0;
 
     for (int i = 0; i < num_iterations; i++) {
