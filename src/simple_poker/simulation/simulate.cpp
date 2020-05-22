@@ -21,11 +21,11 @@ double simulate_games(SimplePlayer* player1, SimplePlayer* player2, int num_game
         size_t starting_player = game % 2;
         print("\n--- Game " + std::to_string(game) + " ---", verbose);
         total_p1_utility += simulate_game(player1, player2, deck, starting_player, verbose);
-        print("Player 1 won " + std::to_string((int) total_p1_utility) + " chips in total.", verbose);
+        print("Player 1 has won " + std::to_string((int) total_p1_utility) + " chips so far.", verbose);
     }
 
     std::cout << std::endl
-        << "Player 1 won " << std::to_string((int) total_p1_utility) << " chips over " << std::to_string(num_games)
+        << "Player 1 has won " << std::to_string((int) total_p1_utility) << " chips over " << std::to_string(num_games)
         << " games (" << std::to_string(total_p1_utility / num_games) << " on average).";
     return total_p1_utility;
 }
