@@ -49,7 +49,9 @@ double simulate_game(SimplePlayer* player1, SimplePlayer* player2, Deck& deck, s
     print("Community card: " + std::to_string(community_card), verbose);
 
     while (!game_over(history)) {
-        InformationSet info_set = { .hand = deck[current_player], .community_card = community_card, .history = history };
+        // the starting player gets card deck[0], the other player gets card deck[1]
+        Card hand = deck[current_player != starting_player];
+        InformationSet info_set = { .hand = hand, .community_card = community_card, .history = history };
         Action action = players[current_player]->do_betting_action(info_set);
         print("Player " + std::to_string(current_player + 1) + " " + action_to_string(action) + ".", verbose);
         history.push_back(action);
@@ -65,8 +67,8 @@ double simulate_game(SimplePlayer* player1, SimplePlayer* player2, Deck& deck, s
 
     if (verbose) {
         // print result
-        std::cout << "Player 1 has a " << std::to_string(deck[0]) << ". "
-                  << "Player 2 has a " << std::to_string(deck[1]) << "." << std::endl;
+        std::cout << "Player 1 has a " << std::to_string(deck[starting_player]) << ". "
+                  << "Player 2 has a " << std::to_string(deck[1 - starting_player]) << "." << std::endl;
         if (result > 0) {
             std::cout << "Player 1 wins " << std::to_string((int) result) << " chip(s)." << std::endl;
         } else if (result < 0) {
