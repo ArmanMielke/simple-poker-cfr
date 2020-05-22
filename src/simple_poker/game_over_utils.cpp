@@ -54,7 +54,8 @@ double calculate_utility(const History& history, const Deck& cards) {
         if (history[len - 2] == PASS && history[len - 1] == PASS) {
             return compare_hands(cards, player_card_index);
         } else {
-            return 1;
+            if (len == 2) { return 1; } else if (len == 3) { return -1; }
+            throw std::domain_error("Unreachable");
         }
     } else if (double_bet) {
         return compare_hands(cards, player_card_index) * 2;
