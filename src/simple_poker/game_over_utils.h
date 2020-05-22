@@ -7,6 +7,7 @@
 
 
 bool game_over(const History& history);
+/// @return utility for the starting player.
 double calculate_utility(const History& history, const Deck& cards);
 
 
