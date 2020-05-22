@@ -13,8 +13,6 @@ std::map<InformationSet, std::array<double, NUM_ACTIONS>> Trainer::train(int num
         utility += cfr(deck, History(), 1, 1);
     }
 
-    std::cout << "Average game value: " << (utility / num_iterations) << std::endl << std::endl;
-
     // construct a map with the average strategy over the training process
     std::map<InformationSet, std::array<double, NUM_ACTIONS>> average_strategy;
     for (auto const& [info_set, node] : node_map) {

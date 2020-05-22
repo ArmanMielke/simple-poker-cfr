@@ -23,5 +23,5 @@ void print_strategy(const std::map<InformationSet, std::array<double, NUM_ACTION
 int main() {
     auto strategy = Trainer().train(NUM_TRAIN_ITERATIONS);
 
-    simulate_games(new CliPlayer(), new CfrBot(strategy), 10, true);
+    simulate_games(new CliPlayer(), new CfrBot(strategy), 1000, true);
 }
