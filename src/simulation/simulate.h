@@ -1,5 +1,5 @@
-#ifndef PYKER_SIMULATE_H
-#define PYKER_SIMULATE_H
+#ifndef SIMPLE_POKER_CFR_SIMULATE_H
+#define SIMPLE_POKER_CFR_SIMULATE_H
 
 
 #include "simple_player.h"
@@ -24,4 +24,4 @@ double simulate_games(SimplePlayer* player1, SimplePlayer* player2, int num_game
 [[nodiscard]] double simulate_game(SimplePlayer* player1, SimplePlayer* player2, Deck& deck, size_t starting_player, bool verbose);
 
 
-#endif //PYKER_SIMULATE_H
+#endif //SIMPLE_POKER_CFR_SIMULATE_H

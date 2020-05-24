@@ -1,5 +1,5 @@
-#ifndef PYKER_CFR_BOT_H
-#define PYKER_CFR_BOT_H
+#ifndef SIMPLE_POKER_CFR_CFR_BOT_H
+#define SIMPLE_POKER_CFR_CFR_BOT_H
 
 
 #include "simple_player.h"
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //PYKER_CFR_BOT_H
+#endif //SIMPLE_POKER_CFR_CFR_BOT_H

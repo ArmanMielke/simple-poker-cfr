@@ -1,5 +1,5 @@
-#ifndef PYKER_TRAINER_H
-#define PYKER_TRAINER_H
+#ifndef SIMPLE_POKER_CFR_TRAINER_H
+#define SIMPLE_POKER_CFR_TRAINER_H
 
 
 #include "node.h"
@@ -26,4 +26,4 @@ private:
 };
 
 
-#endif //PYKER_TRAINER_H
+#endif //SIMPLE_POKER_CFR_TRAINER_H

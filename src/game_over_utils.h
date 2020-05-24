@@ -1,5 +1,5 @@
-#ifndef PYKER_GAME_OVER_UTILS_H
-#define PYKER_GAME_OVER_UTILS_H
+#ifndef SIMPLE_POKER_CFR_GAME_OVER_UTILS_H
+#define SIMPLE_POKER_CFR_GAME_OVER_UTILS_H
 
 
 #include "action.h"
@@ -11,4 +11,4 @@ bool game_over(const History& history);
 double calculate_utility(const History& history, const Deck& cards);
 
 
-#endif //PYKER_GAME_OVER_UTILS_H
+#endif //SIMPLE_POKER_CFR_GAME_OVER_UTILS_H

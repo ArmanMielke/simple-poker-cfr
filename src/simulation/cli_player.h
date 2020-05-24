@@ -1,5 +1,5 @@
-#ifndef PYKER_CLI_PLAYER_H
-#define PYKER_CLI_PLAYER_H
+#ifndef SIMPLE_POKER_CFR_CLI_PLAYER_H
+#define SIMPLE_POKER_CFR_CLI_PLAYER_H
 
 
 #include "simple_player.h"
@@ -13,4 +13,4 @@ public:
 };
 
 
-#endif //PYKER_CLI_PLAYER_H
+#endif //SIMPLE_POKER_CFR_CLI_PLAYER_H

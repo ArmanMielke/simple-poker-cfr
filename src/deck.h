@@ -1,5 +1,5 @@
-#ifndef PYKER_DECK_H
-#define PYKER_DECK_H
+#ifndef SIMPLE_POKER_CFR_DECK_H
+#define SIMPLE_POKER_CFR_DECK_H
 
 
 #include <array>
@@ -14,4 +14,4 @@ Deck create_deck();
 void shuffle(Deck& deck, std::mt19937& rng);
 
 
-#endif //PYKER_DECK_H
+#endif //SIMPLE_POKER_CFR_DECK_H

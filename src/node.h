@@ -1,5 +1,5 @@
-#ifndef PYKER_NODE_H
-#define PYKER_NODE_H
+#ifndef SIMPLE_POKER_CFR_NODE_H
+#define SIMPLE_POKER_CFR_NODE_H
 
 
 #include "action.h"
@@ -20,4 +20,4 @@ private:
 };
 
 
-#endif //PYKER_NODE_H
+#endif //SIMPLE_POKER_CFR_NODE_H

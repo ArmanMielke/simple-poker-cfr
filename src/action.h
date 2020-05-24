@@ -1,5 +1,5 @@
-#ifndef PYKER_ACTION_H
-#define PYKER_ACTION_H
+#ifndef SIMPLE_POKER_CFR_ACTION_H
+#define SIMPLE_POKER_CFR_ACTION_H
 
 
 #include <string>
@@ -17,4 +17,4 @@ enum Action: uint8_t {
 typedef std::vector<Action> History;
 
 
-#endif //PYKER_ACTION_H
+#endif //SIMPLE_POKER_CFR_ACTION_H
