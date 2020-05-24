@@ -1,8 +1,5 @@
-# PyCharm
+# CLion
 /.idea/
-
-# Python cache
-__pycache__/
 
 # CMake
 /cmake-build-debug/
