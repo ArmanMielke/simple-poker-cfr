@@ -2,13 +2,13 @@
 #define SIMPLE_POKER_CFR_RANDOM_BOT_H
 
 
-#include "simple_player.h"
+#include "player.h"
 
 #include <random>
 
 
 /// A simplified poker player that always chooses its actions uniformly at random.
-class RandomBot : public SimplePlayer {
+class RandomBot : public Player {
 public:
     /// @return an action that was chosen uniformly at random.
     /// The given information set is ignored.

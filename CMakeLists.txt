@@ -22,7 +22,7 @@ add_executable(cfr
 
         src/simulation/simulate.cpp
         src/simulation/simulate.h
-        src/simulation/simple_player.h
+        src/simulation/player.h
         src/simulation/cfr_bot.cpp
         src/simulation/cfr_bot.h
         src/simulation/cli_player.cpp

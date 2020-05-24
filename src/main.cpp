@@ -1,8 +1,8 @@
-#include "simple_poker/trainer.h"
-#include "simple_poker/simulation/cfr_bot.h"
-#include "simple_poker/simulation/cli_player.h"
-#include "simple_poker/simulation/random_bot.h"
-#include "simple_poker/simulation/simulate.h"
+#include "trainer.h"
+#include "simulation/cfr_bot.h"
+#include "simulation/cli_player.h"
+#include "simulation/random_bot.h"
+#include "simulation/simulate.h"
 
 #include <iostream>
 

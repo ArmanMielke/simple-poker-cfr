@@ -1,5 +1,5 @@
 #include "simulate.h"
-#include "simple_poker/game_over_utils.h"
+#include "game_over_utils.h"
 
 #include <iostream>
 
@@ -11,7 +11,7 @@ void print(const std::string& msg, bool verbose) {
     }
 }
 
-double simulate_games(SimplePlayer* player1, SimplePlayer* player2, int num_games, bool verbose) {
+double simulate_games(Player* player1, Player* player2, int num_games, bool verbose) {
     Deck deck = create_deck();
     std::mt19937 rng = std::mt19937(std::random_device()());
     double total_p1_utility = 0;
@@ -40,8 +40,8 @@ std::string action_to_string(const Action& action) {
     throw std::domain_error("Unreachable");
 }
 
-double simulate_game(SimplePlayer* player1, SimplePlayer* player2, Deck& deck, size_t starting_player, bool verbose) {
-    std::array<SimplePlayer*, 2> players = { player1, player2 };
+double simulate_game(Player* player1, Player* player2, Deck& deck, size_t starting_player, bool verbose) {
+    std::array<Player*, 2> players = { player1, player2 };
     Card community_card = deck[2];
     History history;
     size_t current_player = starting_player; // 0 for player1, 1 for player2
