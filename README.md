@@ -1,5 +1,25 @@
 # Counterfactual Regret Minimization for Simplified Poker
 
+This is an implementation of [Counterfactual Regret Minimization (CFR)](http://martin.zinkevich.org/publications/regretpoker.pdf) for a simplified version of Texas Hold'em poker.
+CFR is an algorithm that is commonly used to solve imperfect information games.
+It is guaranteed to converge to a *Nash equilibrium* in finite two-player zero-sum games, such as many two-player poker variants.
+A Nash equilibrium is a set of strategies in which neither player can improve their expected payoff by changing their own strategy, as long as the other player doesn't change theirs.
+An interesting consequence of this is that the poker agent can learn to bluff and react to the opponent's bluffs (although it is of course impossible to predict with certainty whether an opponent is bluffing).
+
+
+Compile the code with
+```sh
+cmake . && make
+```
+Then run the program to start the demo:
+```sh
+./cfr
+```
+This will train the agent for 1,000,000 iterations and let the user play against the newly trained agent.
+Training should only take a few seconds to complete.
+
+To learn more about CFR, check out this [excellent tutorial](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf), which inspired much of the code.
+
 
 ## Rules
 
