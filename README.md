@@ -79,3 +79,23 @@ Observations:
 - CFR1 loses a lot of chips against the random bot (I have repeated this experiment multiple times).
 - CFR3 does not win against the random bot by a significant amount (I have repeated this experiment, too, and sometimes CFR3 even loses).
 
+
+---
+
+#### License
+
+<sub>Copyright © 2020 Arman Mielke</sub>
+
+<sub>This program is free software; you can redistribute it and/or modify</sub>
+<sub>it under the terms of the GNU General Public License as published by</sub>
+<sub>the Free Software Foundation; either version 3 of the License, or</sub>
+<sub>(at your option) any later version.</sub>
+
+<sub>This program is distributed in the hope that it will be useful,</sub>
+<sub>but WITHOUT ANY WARRANTY; without even the implied warranty of</sub>
+<sub>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</sub>
+<sub>GNU General Public License for more details.</sub>
+
+<sub>You should have received a copy of the GNU General Public License</sub>
+<sub>along with this program; if not, write to the Free Software Foundation,</sub>
+<sub>Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA</sub>
