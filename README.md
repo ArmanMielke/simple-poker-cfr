@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/github/license/ArmanMielke/simple-poker-cfr?color=green)](#License)
+![Project status: completed](https://img.shields.io/badge/project%20status-completed-green)
+
 # Counterfactual Regret Minimization for Simplified Poker
 
 This is an implementation of [Counterfactual Regret Minimization (CFR)](http://martin.zinkevich.org/publications/regretpoker.pdf) for a simplified version of Texas Hold'em poker.
